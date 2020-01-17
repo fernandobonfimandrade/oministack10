@@ -6,6 +6,7 @@ const app = express();
 
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-w9emd.mongodb.net/radarDev?retryWrites=true&w=majority',{
 useNewUrlParser: true,
+useCreateIndex: true,
 useUnifiedTopology: true,
 });
 
