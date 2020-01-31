@@ -5,12 +5,12 @@ const parseStringAsArray = require('../utils/parseStringAsArray');
 
 module.exports = {
     async index(request, response){
-        const devs = await Dev.find();
+        const devs = await Dev.find().sort({name:1});
         return response.json(devs);
     },
     async store(request, response ){
         const {github_username, techs, latitude, longitude} = request.body;
-        const techArray = parseStringAsArray(techs);
+        const techArray = parseStringAsArray(techs.toUpperCase());
         let devCadastrato = await Dev.findOne({github_username});
 
         if(!devCadastrato){
