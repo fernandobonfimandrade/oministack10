@@ -27,7 +27,9 @@ module.exports = {
                 bio,
                 techs: techArray,
                 location,
-            });
+            })
+
+            //filtrar conexoes que estao a no maximo a 10km de distancias e que o dev tenha uma das techs pesquisadas.
         }
 
     
