@@ -15,7 +15,7 @@ exports.setupWebsocket = (server) => {
                 latitude: Number(latitude),
                 longitude: Number(longitude),
             },
-            techs: parseStringAsArray(techs),
+            techs: parseStringAsArray(techs.toUpperCase()),
         });
     });
 };
@@ -24,6 +24,6 @@ exports.setupWebsocket = (server) => {
 exports.findConnections = (coordinates, techs) => {
     return connections.filter(connection => {
         return calculateDistence(coordinates, connection.coordinates) < 10 
-        && connections.techs.some(item => techs.includes(item))
+        && connection.techs.some(item => techs.includes(item))
     })
 }
